@@ -7,8 +7,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.MarionetteDriver;
 //import org.openqa.selenium.firefox.MarionetteDriver;
 //import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
@@ -24,11 +26,11 @@ public class ConversionStepDefs {
 public void user_is_on_Home_Page() throws Throwable {
 	System.setProperty("webdriver.gecko.driver", "C://Selenium//geckodriver.exe");
 	//Now you can Initialize marionette driver to launch firefox
-	//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-	//capabilities.setCapability("marionette", true);
-	//WebDriver driver = new MarionetteDriver(capabilities); 
+	DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+	capabilities.setCapability("marionette", true);
+	WebDriver driver = new MarionetteDriver(capabilities); 
 
-	 driver = new FirefoxDriver();
+	// driver = new FirefoxDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.get("http://www.store.demoqa.com");
     // Write code here that turns the phrase above into concrete actions
